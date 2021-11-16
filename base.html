@@ -9,38 +9,39 @@
         <h1>Informe a operação que deseja: </h1>
         <button class="add">Registrar</button><br><br>
         <button class="rem">Deletar conta</button>
-        <p>
-        <form class="form" autocomplete="off">
-            <input type="text" name="nome" placeholder="Primeiro Nome">
-            <input type="text" name="nome2" placeholder="Último Nome">
-            <input type="number" name="phone" placeholder="Telefone">
-            <input type="email" name="email" placeholder="Email">
-            <button class="submit">Enviar</button>
-        </form>
+
+        <input type="text" name="nome" placeholder="Primeiro Nome">
+        <input type="text" name="nome2" placeholder="Último Nome">
+        <input type="number" name="phone" placeholder="Telefone">
+        <input type="email" name="email" placeholder="Email">
+        <button class="submit">Enviar</button>
 
     </center>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDA7NIFvmp1KhSsERDlkapg50_xsajUdaY",
+            authDomain: "crud-ef2cf.firebaseapp.com",
+            projectId: "crud-ef2cf",
+            storageBucket: "crud-ef2cf.appspot.com",
+            messagingSenderId: "711820975028",
+            appId: "1:711820975028:web:6e899f609c0feca07ab0e1",
+            measurementId: "G-CZE3B66E10"
+        }
+
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js">
+        const db = firebase.firestore();
+
+        db.collection('users').get().then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+                console.log(doc.data());
+            })
+        })
+    </script>
     <script src="script.js" type="module"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
-<script>
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-apiKey: "AIzaSyDA7NIFvmp1KhSsERDlkapg50_xsajUdaY",
-authDomain: "crud-ef2cf.firebaseapp.com",
-projectId: "crud-ef2cf",
-storageBucket: "crud-ef2cf.appspot.com",
-messagingSenderId: "711820975028",
-appId: "1:711820975028:web:6e899f609c0feca07ab0e1",
-measurementId: "G-CZE3B66E10"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-db = firebase.firestore();
-
-</script>
-
 </body>
 </html>
